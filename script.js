@@ -75,14 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
         tableBody.innerHTML = '';
         data.forEach(user => {
             const row = document.createElement('tr');
+            row.setAttribute('data-remark', user.Remark);
+            row.className = 'rank-row';
             row.innerHTML = `
                 <td class="rank-cell">#${user.Rank}</td>
-                <td class="user-cell">${user.Username}</td>
+                <td class="user-cell">
+                    ${user.Username}
+                    <div class="row-remark-tooltip">${user.Remark}</div>
+                </td>
                 <td class="hide-mobile">${user.Quizzes_Participated}</td>
                 <td class="hide-mobile">${parseFloat(user.Avg_Points).toFixed(2)}</td>
                 <td class="hide-mobile">${parseFloat(user.Avg_Time).toFixed(1)}s</td>
                 <td class="score-cell">${parseFloat(user.Final_Score).toFixed(2)}</td>
-                <td class="remark-cell">${user.Remark}</td>
             `;
             tableBody.appendChild(row);
         });

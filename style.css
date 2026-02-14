@@ -87,6 +87,7 @@ h1 {
     font-weight: 700;
     background: linear-gradient(90deg, #fff, var(--primary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
 }
@@ -151,6 +152,7 @@ h1 {
     word-break: break-all;
     background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.3));
 }
@@ -208,6 +210,7 @@ h1 {
     margin: 1rem 0;
     background: linear-gradient(to bottom, #ffffff, #cbd5e1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -342,13 +345,53 @@ tr:hover td {
     color: var(--accent);
 }
 
-.remark-cell {
+.user-cell {
+    position: relative;
+    font-weight: 600;
+}
+
+.row-remark-tooltip {
+    position: absolute;
+    bottom: 110%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    width: 280px;
     font-family: 'Noto Serif Ethiopic', serif;
-    font-size: 0.95rem;
-    color: var(--text-dim);
+    font-size: 0.9rem;
+    color: var(--text-main);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+    pointer-events: none;
     line-height: 1.4;
-    min-width: 200px;
-    font-style: italic;
+    text-align: center;
+}
+
+.row-remark-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgba(99, 102, 241, 0.3) transparent transparent transparent;
+}
+
+tr:hover .row-remark-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.rank-row:hover td {
+    background: rgba(99, 102, 241, 0.05);
 }
 
 footer {
