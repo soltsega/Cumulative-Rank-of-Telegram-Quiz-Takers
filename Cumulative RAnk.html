@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 Quiz Master Cumulative Leaderboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blur"></div>
+
+    <header>
+        <div class="container">
+            <h1>Cumulative Leaderboard</h1>
+            <p class="subtitle">Official Quiz Bot Rankings</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Podium Section -->
+        <section id="podium" class="podium-container">
+            <!-- Will be populated by JS -->
+            <div class="podium-placeholder">Loading top champions...</div>
+        </section>
+
+        <!-- Search & Info -->
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search your username...">
+            </div>
+            <div class="stats-info">
+                <p>Weightage: 50% Participation | 25% Accuracy | 25% Speed</p>
+            </div>
+        </section>
+
+        <!-- Leaderboard Table -->
+        <section class="table-container glass">
+            <table id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>User</th>
+                        <th class="hide-mobile">Quizzes</th>
+                        <th class="hide-mobile">Avg Accuracy</th>
+                        <th class="hide-mobile">Avg Time (s)</th>
+                        <th>Final Score</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Will be populated by JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Quiz Mastery System</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
