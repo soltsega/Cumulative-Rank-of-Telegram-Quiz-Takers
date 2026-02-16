@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results - Arat Kilo Gibi Gubae</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ethiopic:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blur"></div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/img/logo.png" alt="Logo" class="logo-img"
+                    onerror="this.src='https://via.placeholder.com/50/c19b4a/ffffff?text=AK'">
+                <span class="brand-name">አራት ኪሎ ግቢ ጉባኤ</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="results.html" class="active">Results</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="links.html">Links</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Cumulative Leaderboard</h1>
+            <p class="subtitle">Official Quiz Bot Rankings</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Podium Section -->
+        <section id="podium" class="podium-container">
+            <!-- Will be populated by JS -->
+            <div class="podium-placeholder">Loading top champions...</div>
+        </section>
+
+        <!-- Search & Info -->
+        <section class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search your username...">
+            </div>
+            <div class="stats-info">
+                <p>Weightage: 50% Participation | 25% Accuracy | 25% Speed</p>
+            </div>
+        </section>
+
+        <!-- Leaderboard Table -->
+        <section class="table-container glass">
+            <table id="leaderboardTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>User</th>
+                        <th class="hide-mobile">Quizzes</th>
+                        <th class="hide-mobile">Avg Accuracy</th>
+                        <th class="hide-mobile">Avg Time (s)</th>
+                        <th>Final Score</th>
+                        <th>Remark</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Will be populated by JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Quiz Mastery System | Arat Kilo Gibi Gubae</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
