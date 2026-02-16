@@ -5,3 +5,5 @@ __pycache__/
 .DS_Store
 .env
 additional.txt
+venv/
+ideas\draft.txt
