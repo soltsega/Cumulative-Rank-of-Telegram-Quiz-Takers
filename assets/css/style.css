@@ -1,0 +1,563 @@
+:root {
+    --primary: #c19b4a;
+    /* Golden tone for Arat Kilo Gibi Gubae */
+    --primary-light: #dfc17b;
+    --secondary: #064e3b;
+    /* Deep green for background flavor */
+    --accent: #10b981;
+    --bg-dark: #022c22;
+    /* Very deep green/dark theme */
+    --card-bg: rgba(6, 78, 59, 0.4);
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+    --gold: #fbbf24;
+    --silver: #94a3b8;
+    --bronze: #b45309;
+    --nav-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
+    z-index: -1;
+}
+
+.background-blur::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    filter: blur(150px);
+    opacity: 0.2;
+    animation: float 10s infinite alternate;
+}
+
+.background-blur::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 20%;
+    width: 400px;
+    height: 400px;
+    background: var(--secondary);
+    filter: blur(150px);
+    opacity: 0.15;
+    animation: float 15s infinite alternate-reverse;
+}
+
+@keyframes float {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(100px, 50px);
+    }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Navigation Styles */
+nav {
+    height: var(--nav-height);
+    background: rgba(2, 44, 34, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(193, 155, 74, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+nav .container {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+.logo-img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    border-radius: 50%;
+    /* border: 2px solid var(--primary); */
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    font-weight: 500;
+    transition: color 0.3s, transform 0.3s;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+header {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+/* Podium Styles */
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin: 4rem 0;
+    min-height: 350px;
+}
+
+.podium-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    max-width: 280px;
+}
+
+.podium-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.rank-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.podium-card.first {
+    height: 380px;
+    border-color: rgba(251, 191, 36, 0.4);
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.1);
+}
+
+.podium-card.second {
+    height: 320px;
+}
+
+.podium-card.third {
+    height: 280px;
+}
+
+.user-name-wrapper h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+    background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.3));
+}
+
+.stats-mini {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+/* Blessing Overlay Styles */
+.podium-card {
+    position: relative;
+    overflow: hidden;
+    /* Contain the overlay */
+}
+
+.blessing-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.95) 100%);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0.9) rotateX(-10deg);
+    z-index: 10;
+    border-radius: 24px;
+}
+
+.podium-card:hover .blessing-overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1) rotateX(0);
+}
+
+.blessing-content {
+    text-align: center;
+    animation: fadeInScale 0.6s ease-out;
+}
+
+.blessing-text {
+    font-family: 'Noto Serif Ethiopic', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    font-weight: 500;
+    margin: 1rem 0;
+    background: linear-gradient(to bottom, #ffffff, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.sparkle {
+    font-size: 1.5rem;
+    display: block;
+    animation: shimmy 2s infinite linear;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmy {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px var(--gold));
+    }
+
+    50% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 15px var(--gold));
+    }
+}
+
+.podium-card .score {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.podium-card .label {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.search-box input {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    color: white;
+    width: 300px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-box input:focus {
+    border-color: var(--primary);
+}
+
+.stats-info {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+/* Table */
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-dim);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rank-cell {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.user-cell {
+    font-weight: 600;
+}
+
+.score-cell {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.user-cell {
+    font-weight: 600;
+}
+
+.remark-cell {
+    font-family: 'Noto Serif Ethiopic', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    position: relative;
+    max-width: 200px;
+    padding: 0.5rem !important;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.remark-cell:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.click-hint {
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-family: 'Outfit', sans-serif;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.remark-text {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+    line-height: 1.4;
+    color: var(--text-main);
+    font-style: italic;
+}
+
+.remark-cell.revealed .click-hint {
+    display: none;
+}
+
+.remark-cell.revealed .remark-text {
+    display: inline-block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rank-row:hover td {
+    background: rgba(99, 102, 241, 0.02);
+}
+
+/* Landing Page Specifics */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.feature-card i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card h3 {
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+footer {
+    text-align: center;
+    padding: 4rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 4rem;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .podium-card {
+        width: 100%;
+        height: auto !important;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+}

@@ -7,36 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchData() {
         if (!podiumContainer && !tableBody) return;
 
-        const API_URL = 'http://localhost:8000/leaderboard';
-        const FALLBACK_URL = 'data/cumulative_leaderboard.csv';
+        // Fetch directly from CSV as requested
+        const CSV_URL = 'data/cumulative_leaderboard.csv';
 
         try {
-            console.log('Attempting to fetch from API...');
-            const response = await fetch(API_URL);
-            if (!response.ok) throw new Error('API not available');
-            const data = await response.json();
-            console.log('Data loaded from API');
-            leaderboardData = data;
-            if (podiumContainer) renderPodium(leaderboardData.slice(0, 3));
-            if (tableBody) renderTable(leaderboardData);
-        } catch (apiError) {
-            console.warn('API fetch failed, falling back to CSV:', apiError);
-            try {
-                const response = await fetch(FALLBACK_URL);
-                const data = await response.text();
-                parseCSV(data);
-                console.log('Data loaded from fallback CSV');
-            } catch (csvError) {
-                console.error('All data sources failed:', csvError);
-                if (podiumContainer) {
-                    podiumContainer.innerHTML = '<div class="error">Failed to load data from any source.</div>';
-                }
+            console.log('Attempting to fetch from CSV...');
+            const response = await fetch(CSV_URL);
+            if (!response.ok) throw new Error('CSV file not found');
+            const csvText = await response.text();
+            parseCSV(csvText);
+            console.log('Data loaded from CSV');
+        } catch (error) {
+            console.error('Data source failed:', error);
+            if (podiumContainer) {
+                podiumContainer.innerHTML = '<div class="error">Unable to load leaderboard data.</div>';
             }
         }
     }
 
     function parseCSV(csvText) {
         const lines = csvText.trim().split('\n');
+        if (lines.length === 0) return;
+
         const headers = lines[0].split(',');
 
         leaderboardData = lines.slice(1).map(line => {
@@ -55,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderPodium(topThree) {
         if (!podiumContainer) return;
         podiumContainer.innerHTML = '';
-        // ... (rest of the visual order logic)
+
+        // Podium visual order: 2nd, 1st, 3rd
         const visualOrder = [topThree[1], topThree[0], topThree[2]];
         const classes = ['second', 'first', 'third'];
         const icons = ['🥈', '🥇', '🥉'];
@@ -130,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const term = e.target.value.toLowerCase();
             const filtered = leaderboardData.filter(user =>
                 user.Username.toLowerCase().includes(term) ||
-                user.Rank.includes(term)
+                user.Rank.toString().includes(term)
             );
             renderTable(filtered);
         });
