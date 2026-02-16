@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!podiumContainer && !tableBody) return;
 
         const API_URL = 'http://localhost:8000/leaderboard';
-        const FALLBACK_URL = 'data/cumulative_leaderboard.csv';
+        const FALLBACK_URL = '../data/cumulative_leaderboard.csv';
 
         try {
             console.log('Attempting to fetch from API...');

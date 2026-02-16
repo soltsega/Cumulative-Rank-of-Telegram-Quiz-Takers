@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - version_1.1
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare Deployment
+        run: |
+          mkdir deploy
+          cp -r assets deploy/
+          cp -r data deploy/
+          cp public/* deploy/
+          # Ensure paths are correct in the deployed index.html
+          # We need to remove the '../' from paths since everything is now at repo root on gh-pages
+          sed -i 's|src="../assets/|src="assets/|g' deploy/*.html
+          sed -i 's|href="../assets/|href="assets/|g' deploy/*.html
+          # Also fix script.js fallback path in the deployed version
+          sed -i "s|'../data/|'data/|g" deploy/assets/js/script.js
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./deploy
+          publish_branch: gh-pages
