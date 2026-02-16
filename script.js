@@ -5,16 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     let leaderboardData = [];
 
     async function fetchData() {
-        if (!podiumContainer && !tableBody) return; // Only run on results page
+        if (!podiumContainer && !tableBody) return;
+
+        const API_URL = 'http://localhost:8000/leaderboard';
+        const FALLBACK_URL = 'data/cumulative_leaderboard.csv';
 
         try {
-            const response = await fetch('data/cumulative_leaderboard.csv');
-            const data = await response.text();
-            parseCSV(data);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-            if (podiumContainer) {
-                podiumContainer.innerHTML = '<div class="error">Failed to load data. Make sure cumulative_leaderboard.csv exists.</div>';
+            console.log('Attempting to fetch from API...');
+            const response = await fetch(API_URL);
+            if (!response.ok) throw new Error('API not available');
+            const data = await response.json();
+            console.log('Data loaded from API');
+            leaderboardData = data;
+            if (podiumContainer) renderPodium(leaderboardData.slice(0, 3));
+            if (tableBody) renderTable(leaderboardData);
+        } catch (apiError) {
+            console.warn('API fetch failed, falling back to CSV:', apiError);
+            try {
+                const response = await fetch(FALLBACK_URL);
+                const data = await response.text();
+                parseCSV(data);
+                console.log('Data loaded from fallback CSV');
+            } catch (csvError) {
+                console.error('All data sources failed:', csvError);
+                if (podiumContainer) {
+                    podiumContainer.innerHTML = '<div class="error">Failed to load data from any source.</div>';
+                }
             }
         }
     }
