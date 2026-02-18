@@ -118,14 +118,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = leaderboardData.filter(user =>
-                user.Username.toLowerCase().includes(term) ||
-                user.Rank.toString().includes(term)
-            );
-            renderTable(filtered);
+    // Tab Switching Logic for Resources Page
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    if (tabButtons.length > 0) {
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.getAttribute('data-tab');
+
+                // Update buttons
+                tabButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Update content
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === tabId) {
+                        content.classList.add('active');
+                    }
+                });
+            });
         });
     }
 
