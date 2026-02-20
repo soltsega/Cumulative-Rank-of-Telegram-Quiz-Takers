@@ -1470,3 +1470,197 @@ footer {
         break-inside: avoid;
     }
 }
+
+/* Resources Page Styles - Global Enhancements */
+.tabs {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 0.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    color: var(--text-dim);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 12px;
+    white-space: nowrap;
+    backdrop-filter: blur(10px);
+}
+
+.tab-btn:hover {
+    color: var(--primary);
+    background: rgba(193, 155, 74, 0.1);
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+.tab-btn.active {
+    color: white;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    box-shadow: 0 8px 20px rgba(193, 155, 74, 0.3);
+    border-color: transparent;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.secondary-hero {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.secondary-hero p {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.academic-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.status-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.gospel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.gospel-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+}
+
+.gospel-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-color);
+    border-color: var(--primary);
+}
+
+.gospel-card.unavailable {
+    opacity: 0.8;
+    cursor: default;
+    filter: grayscale(0.5);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.gospel-card.unavailable::before {
+    content: '🔒';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.2rem;
+    opacity: 0.5;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-header i {
+    font-size: 2rem;
+    color: var(--primary);
+    filter: drop-shadow(0 0 8px rgba(193, 155, 74, 0.4));
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+    font-family: 'Noto Serif Ethiopic', serif;
+}
+
+.gospel-description {
+    color: var(--text-dim);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.chapter-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 0.8rem;
+}
+
+.chapter-list a {
+    display: block;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.8rem;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chapter-list a:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(193, 155, 74, 0.3);
+    border-color: transparent;
+    z-index: 1;
+}
+
+.availability {
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 1rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    margin-top: 1rem;
+    border: 1px dashed var(--border-color);
+}
