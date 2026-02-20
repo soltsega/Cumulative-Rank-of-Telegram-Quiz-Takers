@@ -410,11 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.body.appendChild(themeToggle);
 
-        // Load saved theme or detect system preference
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         // Default to dark mode for "professional" feel if no preference
-        const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'dark');
+        const initialTheme = savedTheme || 'dark';
 
         setTheme(initialTheme);
 
