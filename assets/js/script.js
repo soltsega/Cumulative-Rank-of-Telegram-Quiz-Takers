@@ -105,22 +105,38 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isMobile) return;
 
         const nav = document.querySelector('nav');
+        const navLinks = document.querySelector('.nav-links');
         const mobileMenuBtn = document.createElement('button');
         mobileMenuBtn.className = 'mobile-menu-btn';
         mobileMenuBtn.innerHTML = '<span></span><span></span><span></span>';
         nav.appendChild(mobileMenuBtn);
 
-        mobileMenuBtn.addEventListener('click', () => {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             mobileMenuBtn.classList.toggle('active');
+            if (navLinks) {
+                navLinks.classList.toggle('active');
+            }
             hapticFeedback();
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
-            if (!nav.contains(e.target)) {
+            if (navLinks && navLinks.classList.contains('active') && !nav.contains(e.target)) {
                 mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
             }
         });
+
+        // Close menu when clicking a link
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
     }
 
     // Add touch interactions to cards

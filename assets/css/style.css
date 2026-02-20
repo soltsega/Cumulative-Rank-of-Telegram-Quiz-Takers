@@ -23,16 +23,16 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Light mode (default) - Softened */
+/* Light mode (default) - Professional Slate Theme */
 [data-theme="light"] {
-    --bg-primary: #fafafa;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #f4f4f5;
-    --text-main: #27272a;
-    --text-dim: #52525b;
-    --border-color: rgba(0, 0, 0, 0.08);
-    --shadow-color: rgba(0, 0, 0, 0.05);
-    --card-bg: rgba(255, 255, 255, 0.9);
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-tertiary: #e2e8f0;
+    --text-main: #0f172a;
+    --text-dim: #475569;
+    --border-color: rgba(15, 23, 42, 0.1);
+    --shadow-color: rgba(15, 23, 42, 0.08);
+    --card-bg: #ffffff;
 }
 
 /* Dark mode */
@@ -816,6 +816,47 @@ footer {
         font-size: 0.75rem;
     }
 
+    main {
+        padding-top: 1.5rem;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: var(--bg-primary);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
+        box-shadow: -10px 0 30px var(--shadow-color);
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        margin: 0;
+        /* Clear default margins */
+        display: flex;
+        /* Always flex but hidden by position */
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+        display: block;
+        padding: 1rem;
+    }
+
     /* Mobile hero section */
     .hero {
         padding: 2rem 0;
@@ -881,7 +922,8 @@ footer {
         font-size: 2.5rem;
         margin-bottom: 1rem;
         display: block;
-        animation: float 3s ease-in-out infinite;
+        animation: none;
+        /* Disable floating on mobile per user request */
     }
 
     .feature-card:nth-child(2) i {
@@ -913,33 +955,34 @@ footer {
     }
 
 
-    /* Mobile menu button */
+    /* Mobile menu button adjustment */
     .mobile-menu-btn {
         display: block;
         position: fixed;
-        top: 1rem;
-        right: 1rem;
+        top: 1.2rem;
+        right: 1.2rem;
         z-index: 1002;
         background: var(--primary);
         border: none;
         border-radius: 12px;
-        padding: 0.75rem;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
-        box-shadow: 0 5px 15px rgba(193, 155, 74, 0.3);
-        transition: all 0.3s ease;
-    }
-
-    .mobile-menu-btn:active {
-        transform: scale(0.95);
+        box-shadow: 0 4px 15px rgba(193, 155, 74, 0.4);
+        transition: 0.3s;
     }
 
     .mobile-menu-btn span {
         display: block;
-        width: 25px;
-        height: 3px;
+        width: 24px;
+        height: 2px;
         background: white;
-        margin: 5px 0;
-        transition: all 0.3s ease;
+        margin: 2px 0;
+        transition: 0.3s;
         border-radius: 2px;
     }
 
