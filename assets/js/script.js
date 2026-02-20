@@ -100,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // Mobile menu functionality
     function initMobileMenu() {
         if (!isMobile) return;
 
@@ -109,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const mobileMenuBtn = document.createElement('button');
         mobileMenuBtn.className = 'mobile-menu-btn';
         mobileMenuBtn.innerHTML = '<span></span><span></span><span></span>';
-        nav.appendChild(mobileMenuBtn);
+        document.body.appendChild(mobileMenuBtn);
 
         mobileMenuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -237,42 +236,25 @@ document.addEventListener('DOMContentLoaded', () => {
     async function fetchData() {
         if (!podiumContainer && !tableBody) return;
 
+        // Frontend-only: Load from local CSV file
+        const CSV_URL = 'data/cumulative_leaderboard.csv';
+
         // Show loading states
         showLoading(podiumContainer, 'Loading top champions...');
         showLoading(tableBody, 'Loading leaderboard data...');
 
-        // Try CSV first, then fallback to API
-        const CSV_URL = 'data/cumulative_leaderboard.csv';
-        const API_URL = 'http://localhost:8000/leaderboard';
-
         try {
-            console.log('Attempting to fetch from CSV...');
+            console.log('Fetching leaderboard from CSV...');
             const response = await fetch(CSV_URL);
             if (!response.ok) throw new Error('CSV file not found');
             const csvText = await response.text();
             parseCSV(csvText);
-            console.log('Data loaded from CSV');
-        } catch (csvError) {
-            console.warn('CSV failed, trying API:', csvError);
-            try {
-                const response = await fetch(API_URL);
-                if (!response.ok) throw new Error('API request failed');
-                const data = await response.json();
-                if (data.status === 'success' && data.data) {
-                    leaderboardData = data.data;
-                    originalData = [...leaderboardData];
-                    if (podiumContainer) renderPodium(leaderboardData.slice(0, 3));
-                    if (tableBody) renderTable(leaderboardData);
-                    console.log('Data loaded from API');
-                } else {
-                    throw new Error('Invalid API response');
-                }
-            } catch (apiError) {
-                console.error('Both data sources failed:', { csvError, apiError });
-                showError(podiumContainer, 'Unable to load leaderboard data. Please ensure the data file exists or the API server is running.');
-                if (tableBody) {
-                    tableBody.innerHTML = '<tr><td colspan="7" class="error">Unable to load data. Check console for details.</td></tr>';
-                }
+            console.log('Data loaded successfully from CSV');
+        } catch (error) {
+            console.error('Leaderboard load failed:', error);
+            showError(podiumContainer, 'Unable to load leaderboard data. Please check if data/cumulative_leaderboard.csv exists.');
+            if (tableBody) {
+                tableBody.innerHTML = '<tr><td colspan="7" class="error">Unable to load data. Please check the data source.</td></tr>';
             }
         }
     }
