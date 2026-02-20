@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  quiz-app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: akgg-quiz-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./docs:/app/docs
+      - ./logs:/app/logs
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=INFO
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - quiz-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: akgg-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./:/usr/share/nginx/html:ro
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      quiz-app:
+        condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - quiz-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: akgg-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+    networks:
+      - quiz-network
+
+volumes:
+  redis-data:
+    driver: local
+
+networks:
+  quiz-network:
+    driver: bridge
