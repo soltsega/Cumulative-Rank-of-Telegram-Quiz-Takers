@@ -15,7 +15,7 @@ Providing robust support for the "Arat Kilo" (Addis Ababa University) academic j
 
 ### 📖 Spiritual Wisdom
 Deepening the roots of Orthodox Tewahedo faith:
-- **Gospel Studies**: Comprehensive summaries and interactive Q&A for the Gospel of Saint Mark (16 chapters).
+- **Gospel Studies**: Comprehensive summaries and interactive Q&A.
 - **Study Guides**: Spiritual materials tailored for students' spiritual growth during their university years.
 - **Session Notes**: Digital archives of teachings from regular Gibi Gubae gatherings.
 
