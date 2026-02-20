@@ -7,25 +7,25 @@ The platform is built with a mobile-first philosophy, offering PWA (Progressive 
 
 ## Core Pillars
 
-### 🎓 Academic Excellence
+### Academic Excellence
 Providing robust support for the "Arat Kilo" (Addis Ababa University) academic journey:
 - **Resource Repository**: Curated subject notes for engineering, natural sciences, and computer science.
 - **Exam Archives**: Access to past midterm and final examinations with model solutions.
 - **Peer Coordination**: A space for senior-to-junior knowledge transfer and guidance.
 
-### 📖 Spiritual Wisdom
+### Spiritual Wisdom
 Deepening the roots of Orthodox Tewahedo faith:
 - **Gospel Studies**: Comprehensive summaries and interactive Q&A.
 - **Study Guides**: Spiritual materials tailored for students' spiritual growth during their university years.
 - **Session Notes**: Digital archives of teachings from regular Gibi Gubae gatherings.
 
-### 🔗 Community Connectivity
+### Community Connectivity
 Unifying the Orthodox Tewahedo student body across campuses:
 - **Campus Directory**: Quick access to official channels for Arat Kilo, Amst Kilo, Sidist Kilo, and Saint Peter's campuses.
 - **Batch Integration**: Dedicated communication bridges for all active batches (2015–2018 E.C.).
 - **Ecclesiastical Portal**: Direct links to EOTC official media, Mahibere Kidusan (MK), and Tewahedo Media Center (TMC).
 
-### 🏆 Engagement & Gamification
+### Engagement & Gamification
 Encouraging active participation through the **Quiz Mastery System**:
 - **Cumulative Leaderboard**: Automated performance tracking with real-time ranking.
 - **Personalized Feedback**: Humorous and spiritual remarks (Click-to-Reveal) based on cumulative performance.
