@@ -1408,6 +1408,30 @@ footer {
     z-index: 1;
 }
 
+.chapter-list a.read {
+    border-color: var(--accent);
+    background: rgba(16, 185, 129, 0.05);
+    position: relative;
+    color: var(--accent);
+}
+
+.chapter-list a.read::after {
+    content: '✔️';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 0.8rem;
+    background: var(--bg-primary);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--accent);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
 .availability {
     color: var(--text-dim);
     font-style: italic;

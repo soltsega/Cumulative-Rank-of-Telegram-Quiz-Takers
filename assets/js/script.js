@@ -91,6 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Read Tracking Logic for Resources
+    function initReadTracking() {
+        const chapterLinks = document.querySelectorAll('.chapter-list a');
+        if (chapterLinks.length === 0) return;
+
+        // Load saved status
+        chapterLinks.forEach(link => {
+            const bookCard = link.closest('.gospel-card');
+            const bookTitle = bookCard ? bookCard.querySelector('h3').textContent.trim() : 'Unknown';
+            const chapterName = link.textContent.trim();
+            const storageKey = `read_${bookTitle}_${chapterName}`;
+
+            if (localStorage.getItem(storageKey) === 'true') {
+                link.classList.add('read');
+            }
+
+            link.addEventListener('click', () => {
+                if (!link.classList.contains('read')) {
+                    link.classList.add('read');
+                    localStorage.setItem(storageKey, 'true');
+                    hapticFeedback();
+                }
+            });
+        });
+    }
+
     // Add touch interactions to cards
     function addTouchInteractions() {
         const cards = document.querySelectorAll('.feature-card, .podium-card, .gospel-card');
@@ -434,6 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initEnhancedSearch();
     initThemeToggle();
+    initReadTracking();
 
 
     // Add online/offline detection
