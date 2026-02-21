@@ -50,7 +50,7 @@ The engagement system uses a balanced 50/25/25 formula:
 ### Quick Start (Local)
 ```bash
 # Clone and prepare
-git clone <repository-url> && cd cumulative-Rank
+git clone "https://github.com/soltsega/Arat-Kilo-Gbi-Gubae-Community-Hub/" && cd Arat KIlo Gbi Gubae Community Hub
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
