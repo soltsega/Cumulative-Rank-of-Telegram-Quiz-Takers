@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Arat Kilo Gibi Gubae</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Ethiopic:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Mobile-specific meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#022c22">
+    <!-- PWA meta tags -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icon-16.png">
+</head>
+
+<body>
+    <div class="background-blur"></div>
+
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/img/logo.png" alt="Logo" class="logo-img"
+                    onerror="this.src='https://via.placeholder.com/50/c19b4a/ffffff?text=AK'">
+                <span class="brand-name">አራት ኪሎ ግቢ ጉባኤ</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="results.html">Results</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="links.html">Links</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="subtitle">We value your feedback and suggestions</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero secondary-hero">
+            <p>Your feedback helps us improve and grow. Whether you have suggestions for new features, improvements to existing functionality, or general comments about your experience, we'd love to hear from you.</p>
+        </section>
+
+        <!-- Contact Information Section -->
+        <section class="contact-info-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="contact-content">
+                        <h3>Email</h3>
+                        <p>tsegasolomon538@gmail.com</p>
+                        <span class="contact-label">Primary Contact</span>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13 9-5 9 5"></path>
+                            <path d="M3.59 4.59A2 2 0 0 1 5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 .41-1.41z"></path>
+                            <line x1="12" y1="19" x2="12" y2="19"></line>
+                        </svg>
+                    </div>
+                    <div class="contact-content">
+                        <h3>Telegram</h3>
+                        <p>@AratKiloGibiGubae</p>
+                        <span class="contact-label">Community Channel</span>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10 5z"></path>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-content">
+                        <h3>Location</h3>
+                        <p>Arat Kilo, Addis Ababa</p>
+                        <span class="contact-label">Physical Location</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Form Section -->
+        <section class="review-section">
+            <h2>Share Your Feedback</h2>
+            <div class="review-form-container">
+                <form id="reviewForm" class="review-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select a topic</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="feedback">Website Feedback</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="suggestion">Improvement Suggestion</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="improvements">Areas for Improvement</label>
+                        <textarea id="improvements" name="improvements" rows="3" placeholder="What aspects of the website could be improved? (e.g., navigation, design, functionality)"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="features">Suggested Features</label>
+                        <textarea id="features" name="features" rows="3" placeholder="What new features would you like to see? (e.g., new pages, tools, integrations)"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Overall Experience</label>
+                        <div class="rating-container">
+                            <div class="rating-options">
+                                <label class="rating-option">
+                                    <input type="radio" name="experience" value="excellent">
+                                    <span class="rating-label">Excellent</span>
+                                </label>
+                                <label class="rating-option">
+                                    <input type="radio" name="experience" value="good">
+                                    <span class="rating-label">Good</span>
+                                </label>
+                                <label class="rating-option">
+                                    <input type="radio" name="experience" value="average">
+                                    <span class="rating-label">Average</span>
+                                </label>
+                                <label class="rating-option">
+                                    <input type="radio" name="experience" value="poor">
+                                    <span class="rating-label">Poor</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Additional Comments</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any other thoughts, feedback, or messages you'd like to share..."></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="clearForm()">Clear Form</button>
+                        <button type="submit" class="btn-primary">Submit Feedback</button>
+                    </div>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Thank You!</h3>
+                        <p>Your feedback has been submitted successfully. We appreciate your time and input.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Office Hours Section -->
+        <section class="hours-section">
+            <h2>Office Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Regular Hours</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">10:00 AM - 4:00 PM</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hours-card">
+                    <h3>Response Time</h3>
+                    <div class="response-info">
+                        <div class="response-item">
+                            <span class="channel">Email</span>
+                            <span class="timeframe">Within 24 hours</span>
+                        </div>
+                        <div class="response-item">
+                            <span class="channel">Telegram</span>
+                            <span class="timeframe">Within 2-4 hours</span>
+                        </div>
+                        <div class="response-item">
+                            <span class="channel">Form Submissions</span>
+                            <span class="timeframe">Within 48 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Quiz Mastery System | Arat Kilo Gibi Gubae</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // Clear form after 2 seconds
+            setTimeout(() => {
+                clearForm();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+
+        function clearForm() {
+            document.getElementById('reviewForm').reset();
+        }
+    </script>
+</body>
+
+</html>
