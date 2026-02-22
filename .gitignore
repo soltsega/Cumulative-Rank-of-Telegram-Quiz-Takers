@@ -29,3 +29,11 @@ docs/additional.txt
 data/quizRankData.txt.bak
 GOOGLE_SHEETS_SETUP.md
 scripts/contact_form_script.gs
+scripts/ultra_simple.gs
+.gitignore
+scripts/post_contact_script.gs
+scripts/debug_post_script.gs
+scripts/simple_contact_script.gs
+scripts/debug_script.gs
+simple_test.html
+post_test.html
